@@ -1,0 +1,7 @@
+{
+  "pipeline": {
+    "status": "ready",
+    "estimated_fps": 8,
+    "latency_ms": 120
+  }
+}
