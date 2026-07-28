@@ -1,0 +1,35 @@
+camera:
+  fx: 600.0
+  fy: 600.0
+  cx: 320.0
+  cy: 240.0
+  average_face_width_m: 0.16
+
+vision:
+  detector_confidence: 0.45
+  min_face_width_px: 20
+  max_face_width_px: 400
+  scene_labels: [office, room, hallway, street, unknown]
+
+tracking:
+  max_age: 8
+  min_hits: 2
+  ema_alpha: 0.35
+
+world_model:
+  stale_after_frames: 15
+  uncertainty_threshold: 0.75
+
+visualization:
+  show_fps: true
+  line_thickness: 2
+  font_scale: 0.6
+
+paths:
+  output_dir: results
+  sample_output_dir: sample_outputs
+  demo_dir: demo
+  video_dir: videos
+
+logging:
+  level: INFO

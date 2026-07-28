@@ -1,0 +1,16 @@
+{
+  "score": 90,
+  "pytest_exit_code": 0,
+  "demo_exit_code": 0,
+  "pytest_output": [
+    "....................                                                     [100%]",
+    "20 passed in 1.56s"
+  ],
+  "demo_output": [
+    "        \"frame\": 1",
+    "      }",
+    "    ]",
+    "  }",
+    "}"
+  ]
+}
