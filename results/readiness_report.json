@@ -4,7 +4,11 @@
   "demo_exit_code": 0,
   "pytest_output": [
     "....................                                                     [100%]",
+<<<<<<< HEAD
     "20 passed in 1.56s"
+=======
+    "20 passed in 0.95s"
+>>>>>>> 736ce46bf2dca6106c5f3a0b3729862735fc0209
   ],
   "demo_output": [
     "        \"frame\": 1",
