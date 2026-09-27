@@ -194,19 +194,19 @@ graph TB
 <div align="center">
 
 <!-- GITHUB STATS & STREAK -->
-<img src="https://github-readme-stats.vercel.app/api?username=vabhijit516-bot&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" height="180" alt="Abhijit's GitHub Stats" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=vabhijit516-bot&theme=tokyonight&hide_border=true" height="180" alt="Abhijit's GitHub Streak" />
+<img src="https://github-readme-stats-eight-theta.vercel.app/api?username=vabhijit516-bot&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" height="180" alt="Abhijit's GitHub Stats" />
+<img src="https://streak-stats.demolab.com?user=vabhijit516-bot&theme=tokyonight&hide_border=true" height="180" alt="Abhijit's GitHub Streak" />
 
 <br/><br/>
 
-<!-- TOP LANGUAGES & ACTIVITY GRAPH -->
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vabhijit516-bot&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="180" alt="Top Languages" />
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=vabhijit516-bot&theme=tokyo-night&hide_border=true&area=true" height="180" alt="Activity Graph" />
+<!-- TOP LANGUAGES & PROFILE DETAILS -->
+<img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=vabhijit516-bot&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="180" alt="Top Languages" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=vabhijit516-bot&theme=tokyonight" height="180" alt="Profile Summary" />
 
 <br/><br/>
 
-<!-- GITHUB TROPHIES -->
-<img src="https://github-profile-trophy.vercel.app/?username=vabhijit516-bot&theme=onedark&no-frame=true&no-bg=true&margin-w=4" alt="GitHub Trophies" />
+<!-- REPOS & CONTRIBUTION STATS -->
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=vabhijit516-bot&theme=tokyonight" height="180" alt="GitHub Contribution Stats" />
 
 </div>
 
