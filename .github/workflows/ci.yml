@@ -1,0 +1,73 @@
+name: NexDev Continuous Integration & Testing
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  backend-test:
+    name: Backend CI (Node & TypeScript)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 18.x, 20.x ]
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: server/package.json
+
+      - name: Install Backend Dependencies
+        working-directory: ./server
+        run: npm ci || npm install
+
+      - name: Run Type Check & Build
+        working-directory: ./server
+        run: npm run build
+
+      - name: Run Unit & Integration Tests
+        working-directory: ./server
+        run: npm test --if-present
+
+  frontend-build:
+    name: Frontend CI (React & Vite)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+          cache-dependency-path: client/package.json
+
+      - name: Install Frontend Dependencies
+        working-directory: ./client
+        run: npm ci || npm install
+
+      - name: Verify Production Client Build
+        working-directory: ./client
+        run: npm run build
+
+  docker-lint:
+    name: Dockerfile & Orchestration Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Validate Docker Compose Configuration
+        run: docker compose config

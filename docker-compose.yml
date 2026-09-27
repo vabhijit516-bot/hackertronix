@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------
+  # Backend API Service (Node.js + Express + TypeScript)
+  # -------------------------------------------------------------
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: nexdev-api-server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - CLIENT_ORIGIN=http://localhost:5173
+      - DATABASE_URL=postgresql://nexdev_user:nexdev_secure_pass@postgres:5432/nexdev_db
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - nexdev-network
+
+  # -------------------------------------------------------------
+  # Frontend Application (React 18 + Vite + Nginx)
+  # -------------------------------------------------------------
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: nexdev-web-client
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+    networks:
+      - nexdev-network
+
+  # -------------------------------------------------------------
+  # Relational Database (PostgreSQL 16)
+  # -------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: nexdev-postgres-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nexdev_user
+      POSTGRES_PASSWORD: nexdev_secure_pass
+      POSTGRES_DB: nexdev_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nexdev_user -d nexdev_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - nexdev-network
+
+  # -------------------------------------------------------------
+  # High-Speed In-Memory Cache (Redis 7)
+  # -------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: nexdev-redis-cache
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - nexdev-network
+
+# ---------------------------------------------------------------
+# Networks & Persistent Volumes
+# ---------------------------------------------------------------
+networks:
+  nexdev-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
