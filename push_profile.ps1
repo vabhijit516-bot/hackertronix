@@ -29,16 +29,22 @@ $TempDir = Join-Path $env:TEMP "gh-profile-push"
 if (Test-Path $TempDir) { Remove-Item -Recurse -Force $TempDir }
 New-Item -ItemType Directory -Path $TempDir | Out-Null
 
-# Copy PROFILE_README.md as README.md
+# Copy PROFILE_README.md, banner.svg, and footer.svg
 Copy-Item ".\PROFILE_README.md" (Join-Path $TempDir "README.md")
+if (Test-Path ".\banner.svg") {
+    Copy-Item ".\banner.svg" (Join-Path $TempDir "banner.svg")
+}
+if (Test-Path ".\footer.svg") {
+    Copy-Item ".\footer.svg" (Join-Path $TempDir "footer.svg")
+}
 
 # Initialize and push
 Push-Location $TempDir
 try {
     git init
     git branch -M main
-    git add README.md
-    git commit -m "feat: upgrade GitHub profile to senior Full-Stack & AI engineer"
+    git add .
+    git commit -m "feat: upgrade GitHub profile with custom vector banner"
     git remote add origin $RemoteUrl
     git push -u origin main --force
     Write-Host "`nSUCCESS! Your GitHub Profile is now transformed at https://github.com/$Username" -ForegroundColor Green

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="100%" height="100%">
+  <defs>
+    <!-- Wave Gradients -->
+    <linearGradient id="footerGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#6366F1" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.3" />
+    </linearGradient>
+
+    <linearGradient id="footerGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#C084FC" stop-opacity="0.6" />
+    </linearGradient>
+
+    <linearGradient id="footerLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="35%" stop-color="#70A5FF" />
+      <stop offset="70%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Wave -->
+  <path d="M 0 0 C 300 90, 500 10, 800 70 C 1000 110, 1120 40, 1200 60 L 1200 120 L 0 120 Z" fill="url(#footerGrad1)" />
+
+  <!-- Mid Wave -->
+  <path d="M 0 30 C 220 90, 480 30, 720 85 C 950 130, 1080 60, 1200 80 L 1200 120 L 0 120 Z" fill="url(#footerGrad2)" opacity="0.4" />
+
+  <!-- Flowing Crest Contour Lines -->
+  <path d="M 0 0 C 300 90, 500 10, 800 70 C 1000 110, 1120 40, 1200 60" fill="none" stroke="url(#footerLineGrad)" stroke-width="2.5" opacity="0.85" />
+  <path d="M 0 18 Q 360 85, 750 35 T 1200 45" fill="none" stroke="#00F0FF" stroke-width="1.2" opacity="0.4" />
+</svg>

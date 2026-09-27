@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- HEADER BANNER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,15,28,34&height=220&section=header&text=Abhijit%20%E2%9A%A1&fontSize=48&fontAlignY=38&desc=Full-Stack%20Software%20Engineer%20%7C%20Scalable%20Systems%20%26%20AI%20Architect&descFontSize=19&descAlignY=62&descAlign=50" width="100%" alt="Abhijit Profile Banner" />
+<img src="./banner.svg" width="100%" alt="Abhijit Profile Banner" />
 
 <!-- DYNAMIC TYPING SVG -->
 <a href="https://github.com/vabhijit516-bot">
@@ -246,7 +246,7 @@ graph TB
 
 <!-- FOOTER WAVE -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,15,28,34&height=120&section=footer" width="100%" alt="Footer Banner" />
+  <img src="./footer.svg" width="100%" alt="Footer Banner" />
   <p align="center">
     <sub>Crafted with passion, caffeine, and precision by <b>Abhijit</b> • © 2026</sub>
   </p>

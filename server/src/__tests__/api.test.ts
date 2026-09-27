@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { describe, it, expect } from '@jest/globals';
 import { app } from '../index';
 
 describe('NexDev Full-Stack API Integration Tests', () => {
